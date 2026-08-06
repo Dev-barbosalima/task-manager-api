@@ -26,7 +26,6 @@ public class TaskService {
 
     //Criar Tarefa
     public Task criar(Task task){
-        task.setStatus("Tarefa Pendente");
         return repository.save(task);
     }
 
@@ -37,9 +36,9 @@ public class TaskService {
         if(taskExistente.isPresent()){
             Task task = taskExistente.get();
 
+            task.setStatus(novaTask.getStatus());
             task.setTitulo(novaTask.getTitulo());
             task.setDescricao(novaTask.getDescricao());
-            task.setStatus(novaTask.getStatus());
 
             return repository.save(task);
         }

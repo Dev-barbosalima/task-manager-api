@@ -24,8 +24,14 @@ public class Task {
 
     @Getter
     @Setter
-    private String status;
+    private StatusTarefa status;
 
     //construtor
     public Task(){}
+
+    public Task(String titulo, String descricao){
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.status = StatusTarefa.PENDENTE;
+    }
 }
